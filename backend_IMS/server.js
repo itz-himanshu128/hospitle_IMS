@@ -22,7 +22,27 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 app.use(express.json());
-app.use(cors());
+
+// CORS Configuration
+const corsOptions = {
+    origin: function (origin, callback) {
+        const allowedOrigins = [
+            'http://localhost:3000',
+            'http://localhost:5000',
+            process.env.FRONTEND_URL
+        ].filter(Boolean);
+        
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(null, true); // Allow all origins for now
+        }
+    },
+    credentials: true,
+    optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 
 // Routes
 app.use('/auth', require('./src/routes/authRoutes'));
