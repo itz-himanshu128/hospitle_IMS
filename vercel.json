@@ -1,9 +1,6 @@
 {
-  "buildCommand": "cd frontend_IMS && npm install && npm run build",
-  "outputDirectory": "frontend_IMS/dist",
-  "framework": "vite",
-  "installCommand": "npm install",
-  "env": {
-    "VITE_API_URL": "@vite_api_url"
-  }
+    "buildCommand": "cd frontend_IMS && npm install && npm run build",
+    "outputDirectory": "frontend_IMS/dist",
+    "framework": "vite",
+    "installCommand": "npm install"
 }
