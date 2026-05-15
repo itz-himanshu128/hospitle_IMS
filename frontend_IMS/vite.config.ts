@@ -8,6 +8,12 @@ export default defineConfig(({ mode }) => {
       server: {
         port: 3000,
         host: '0.0.0.0',
+        allowedHosts: [
+          'localhost',
+          'hospitileims-production.up.railway.app',
+          'hospitleims.vercel.app',
+          'hospitleims-git-main-himanshu87701-2106s-projects.vercel.app'
+        ]
       },
       plugins: [react()],
       define: {
