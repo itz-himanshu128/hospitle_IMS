@@ -29,14 +29,13 @@ const corsOptions = {
         const allowedOrigins = [
             'http://localhost:3000',
             'http://localhost:5000',
+            'https://hospitileims-euhxnlq7c-himanshu87701-2106s-projects.vercel.app',
+            'https://hospitileims-git-main-himanshu87701-2106s-projects.vercel.app',
             process.env.FRONTEND_URL
         ].filter(Boolean);
         
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(null, true); // Allow all origins for now
-        }
+        // Allow all origins during development/testing
+        callback(null, true);
     },
     credentials: true,
     optionsSuccessStatus: 200
