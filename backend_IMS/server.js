@@ -60,21 +60,9 @@ app.use('/inventory', require('./src/routes/inventoryRoutes'));
 app.use('/messages', require('./src/routes/messageRoutes'));
 app.use('/notes', require('./src/routes/noteRoutes'));
 
-// Root route
-const path = require('path');
-
-if (process.env.NODE_ENV === 'production') {
-    // Set static folder
-    app.use(express.static(path.join(__dirname, '../frontend_IMS/dist')));
-
-    app.get('*', (req, res) =>
-        res.sendFile(path.resolve(__dirname, '../', 'frontend_IMS', 'dist', 'index.html'))
-    );
-} else {
-    app.get('/', (req, res) => {
-        res.send('API is running...');
-    });
-}
+app.get('/', (req, res) => {
+    res.send('API is running...');
+});
 
 // Error Handling
 app.use(notFound);
