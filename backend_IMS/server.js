@@ -43,6 +43,15 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+    res.json({ 
+        status: 'OK', 
+        message: 'Backend is running',
+        timestamp: new Date().toISOString()
+    });
+});
+
 // Routes
 app.use('/auth', require('./src/routes/authRoutes'));
 app.use('/attendance', require('./src/routes/attendanceRoutes'));
