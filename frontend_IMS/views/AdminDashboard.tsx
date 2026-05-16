@@ -59,7 +59,7 @@ interface AdminDashboardProps {
 
 const AdminDashboard: React.FC<AdminDashboardProps> = ({ 
   currentView, users, patients, inventory, attendance, messages, notes, user,
-  onAddPatient, onUpdatePatient, onResetPassword, onAddUser, onUpdateUser,
+  onAddPatient, onUpdatePatient, onResetPassword, onAddUser, onUpdateUser, onDeleteUser,
   onAddInventory, onUpdateInventory, onDeleteInventory,
   onSendMessage, onBroadcastMessage, onMarkAsRead, onAddNote, onUpdateNote, onDeleteNote
 }) => {
@@ -443,7 +443,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 <BarChart data={data}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="name" />
-                  <YAxis />
+                  <YAxis allowDecimals={false} />
                   <Tooltip />
                   <Bar dataKey="count" fill="#3b82f6" radius={[4, 4, 0, 0]} barSize={50} />
                 </BarChart>
